@@ -8,6 +8,24 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+require('dotenv').config();
+
+// Sequelize config
+const Sequelize = require('sequelize');
+
+let sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
+	host: process.env.DB_HOST,
+	dialect: process.env.DB_DIALECT
+});
+
+sequelize
+	.authenticate()
+	.then(() => {
+		console.log('Connection has been established successfully.');
+	})
+	.catch(err => {
+		console.error('Unable to connect to the database:', err);
+	});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
