@@ -14,7 +14,7 @@ module.exports = {
 				email: faker.internet.email(),
 				password: bcrypt.hashSync('secret', 10),
 				createdAt: new Date(),
-        updatedAt: new Date()
+				updatedAt: new Date()
 			});
 		}
 
@@ -23,6 +23,6 @@ module.exports = {
 
 	down: (queryInterface, Sequelize) => {
 
-		return queryInterface.bulkDelete('users', null, {})
+		return queryInterface.bulkDelete('users', null, {});
 	}
 };

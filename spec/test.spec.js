@@ -5,10 +5,20 @@ describe("A suite", function() {
   it("contains spec with an expectation", (done) => {
 		expect(true).toBe(true);
 
-		db.User.findAll({limit: 1}).then(users => {
+		db.Producer.findOne({
+			where: {
+				id: 22
+			}
+		}).then(producer => {
 
-			console.log(users[0].email);
-			done();
+			producer.getFieldGroups().then(fieldGroups => {
+
+				fieldGroups[0].getProducer().then(producer => {
+
+					console.log(producer.name);
+					done();
+				});
+			});
 		});
   });
 });
