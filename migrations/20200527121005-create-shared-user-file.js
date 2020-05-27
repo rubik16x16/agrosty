@@ -1,20 +1,36 @@
 'use strict';
 module.exports = {
 	up: (queryInterface, Sequelize) => {
-		return queryInterface.createTable('users', {
+		return queryInterface.createTable('shared_user_files', {
 			id: {
 				allowNull: false,
 				autoIncrement: true,
 				primaryKey: true,
 				type: Sequelize.INTEGER
 			},
-			email: {
+			accessType: {
 				allowNull: false,
 				type: Sequelize.STRING
 			},
-			password: {
+			accessGrantedDt: {
 				allowNull: false,
 				type: Sequelize.STRING
+			},
+			fieldId: {
+				type: Sequelize.INTEGER,
+				references: {
+					model: 'fields',
+					key: 'id'
+				},
+				allowNull: false
+			},
+			userId: {
+				type: Sequelize.INTEGER,
+				references: {
+					model: 'users',
+					key: 'id'
+				},
+				allowNull: false
 			},
 			createdAt: {
 				allowNull: false,
@@ -27,6 +43,6 @@ module.exports = {
 		});
 	},
 	down: (queryInterface, Sequelize) => {
-		return queryInterface.dropTable('users');
+		return queryInterface.dropTable('shared_user_files');
 	}
 };
