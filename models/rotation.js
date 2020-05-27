@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
 		Rotation.hasMany(models.FieldRotation, {foreignKey: 'rotationId', as: 'fieldRotations'});
 		Rotation.hasMany(models.Zoning, {foreignKey: 'rotationId', as: 'zonings'});
 		Rotation.hasMany(models.Zone, {foreignKey: 'rotationId', as: 'zones'});
-		Rotation.hasMany(models.ScountingNote, {foreignKey: 'rotationId', as: 'scoutingNotes'});
+		Rotation.hasMany(models.ScoutingNote, {foreignKey: 'rotationId', as: 'scoutingNotes'});
 	};
 	return Rotation;
 };
