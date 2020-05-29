@@ -4,7 +4,9 @@ module.exports = (sequelize, DataTypes) => {
 		cpCrop: DataTypes.STRING,
 		hybrid: DataTypes.STRING,
 		sowingDt: DataTypes.STRING,
-		phenologicStage: DataTypes.STRING
+		phenologicStage: DataTypes.STRING,
+		fieldId: DataTypes.INTEGER,
+		rotationId: DataTypes.INTEGER
 	}, {});
 	FieldRotation.associate = function(models) {
 		FieldRotation.belongsTo(models.Field, {foreignKey: 'fieldId', as: 'field'});

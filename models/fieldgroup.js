@@ -1,7 +1,8 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 	const FieldGroup = sequelize.define('FieldGroup', {
-		name: DataTypes.STRING
+		name: DataTypes.STRING,
+		producerId: DataTypes.INTEGER
 	}, {
 		tableName: 'field_groups'
 	});

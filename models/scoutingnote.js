@@ -5,6 +5,9 @@ module.exports = (sequelize, DataTypes) => {
 		position: DataTypes.DATE,
 		description: DataTypes.DATE,
 		photo: DataTypes.DATE,
+		userId: DataTypes.INTEGER,
+		fieldId: DataTypes.INTEGER,
+		rotationId: DataTypes.INTEGER
 	}, {});
 	ScoutingNote.associate = function(models) {
 		ScoutingNote.belongsTo(models.User, {foreignKey: 'userId', as: 'user'});

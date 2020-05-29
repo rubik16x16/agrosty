@@ -3,7 +3,8 @@ module.exports = (sequelize, DataTypes) => {
 	const UserLog = sequelize.define('UserLog', {
 		date: DataTypes.DATE,
 		type: DataTypes.STRING,
-		content: DataTypes.STRING
+		content: DataTypes.STRING,
+		userId: DataTypes.INTEGER
 	}, {});
 	UserLog.associate = function(models) {
 		UserLog.belongsTo(models.User, {foreignKey: 'userId', as: 'user'});

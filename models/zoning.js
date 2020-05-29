@@ -1,7 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
 	const Zoning = sequelize.define('Zoning', {
-		outputimg: DataTypes.STRING
+		outputimg: DataTypes.STRING,
+		fieldId: DataTypes.INTEGER,
+		rotationId: DataTypes.INTEGER,
+		imageId: DataTypes.INTEGER
 	}, {});
 	Zoning.associate = function(models) {
 		Zoning.belongsTo(models.Field, {foreignKey: 'fieldId', as: 'field'});

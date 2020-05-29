@@ -4,7 +4,10 @@ module.exports = (sequelize, DataTypes) => {
 		sinceIndexValue: DataTypes.STRING,
 		untilIndexValue: DataTypes.STRING,
 		color: DataTypes.STRING,
-		area: DataTypes.STRING
+		area: DataTypes.STRING,
+		zoningId: DataTypes.INTEGER,
+		fieldId: DataTypes.INTEGER,
+		rotationId: DataTypes.INTEGER
 	}, {});
 	Zone.associate = function(models) {
 		Zone.belongsTo(models.Zoning, {foreignKey: 'zoningId', as: 'user'});

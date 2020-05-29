@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
 		area: DataTypes.STRING,
 		avgNDVI: DataTypes.STRING,
 		priorAvgNDVI: DataTypes.STRING,
-		photo: DataTypes.STRING
+		photo: DataTypes.STRING,
+		fieldGroupId: DataTypes.INTEGER,
+		userId: DataTypes.INTEGER
 	}, {});
 	Field.associate = function(models) {
 		Field.belongsTo(models.User, {foreignKey: 'userId', as: 'user'});
