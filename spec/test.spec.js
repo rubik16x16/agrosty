@@ -13,11 +13,13 @@ describe("A suite", function() {
 
 			producer.getFieldGroups().then(fieldGroups => {
 
-				fieldGroups[0].getProducer().then(producer => {
+				// console.log(fieldGroups[0]);
+				done();
+				// fieldGroups[0].getProducer().then(producer => {
 
-					console.log(producer.name);
-					done();
-				});
+				// 	console.log(producer.name);
+				// 	done();
+				// });
 			});
 		});
   });
